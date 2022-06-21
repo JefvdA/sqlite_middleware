@@ -29,11 +29,7 @@ class Db():
     
     def select_by_id(self, cls, id):
         # Give a class and an id to this function, and it will retrieve the object with this id from the database
-        table_name = f"tbl{cls.__name__}s"
-
-        sql = f"SELECT * FROM {table_name} WHERE id={id}"
-
-        all_rows = self.cursor.execute(sql).fetchall()
+        all_rows = self.select_by_custom_attribute(cls, "id", id)
         
         return all_rows
 
