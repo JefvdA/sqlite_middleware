@@ -1,6 +1,19 @@
 # Sqlite middleware
 This package removes all the annoying boilerplate code you have to write when using `sqlite3`. Instead, use the methods this package provides, and easily manage your sqlite database in your python project.
 
+- [Installation](#installation)
+- [Db class](#db-class)
+- [How does it work]()
+
+# Installation
+
+For more information, check out the [PyPi page](https://pypi.org/project/sqlite-middleware/)
+
+To install the newest version, use:
+```
+pip install sqlite-middleware
+```
+
 # Db class:
 All the functionality of this package is in the `Db` class.
 When creating a new instance of this class, you should specify following parameters:
@@ -100,3 +113,21 @@ db.save_object(person) # Say this is the first person, and gets id 1
 
 db.delete_object(Person, 1)
 ```
+
+# How does it work
+- [Table names](#table-names)
+- [Fields in table](#fields-in-table)
+
+## Table names
+By default table names are created with the name of the class you specified. 
+`tbl[Classname]s`
+
+The reason that we must pass an object, and not a class, to `db.create_table()`, is because it takes all the instance variables of this object and uses them to create a column in the sqlite table.
+
+For example with a class named `Person`, which has a `name` parameter:
+```python
+db.create_table(Person())
+```
+The line above would create a table, with name `tblPersons` and it would have 2 columns `name`, and also an auto-generated column for id.
+
+As we need id's to specify what object to delte, the id needs to be stored in the database, this is done automatically when creating a table / saving an object.
