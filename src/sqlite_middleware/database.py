@@ -35,7 +35,19 @@ class Db():
 
         all_rows = self.cursor.execute(sql).fetchall()
         
-        return all_rows    
+        return all_rows
+
+    
+    def select_by_custom_attribute(self, cls, custom_attribute, value):
+        # Give a class and a custom attribute to this function, and it will retrieve the objects with this custom attribute from the database
+        table_name = f"tbl{cls.__name__}s"
+
+        sql = f"SELECT * FROM {table_name} WHERE {custom_attribute}='{value}'"
+        print(sql)
+
+        all_rows = self.cursor.execute(sql).fetchall()
+        
+        return all_rows
 
 
     def create_table(self, object):
