@@ -30,6 +30,7 @@ When an instance of `Db` is deleted, the `__del__` magic method will close the c
 Here are all the methods that the `Db` class provides:
 - [select_all](#select-all)
 - [select_by_id](#select-by-id)
+- [select_by_custom_attribute](#select-by-custom-attribute)
 - [create_table](#create-table)
 - [save_object](#save-object)
 - [update_object](#update-object)
@@ -56,6 +57,19 @@ Parameters:
 Example usage:
 ```python
 db.select_by_id(Person, 2)
+```
+
+## Select by custom attribute
+This method will retrieve and return an object with certain value for a certain attribute
+
+Parameters:
+- **cls**: (Class) class of the object you want to retrieve
+- **custom_attribute**: (str) string of the column of the attribute you want to search for
+- **value**: (any) value of this attribute you are searching for
+
+Example usage:
+```python
+db.select_by_custom_attribute(Person, "name", "John Doe")
 ```
 
 ## Create table
