@@ -1,8 +1,10 @@
 import sqlite3
 
+
 class Db():
     """Class to create sqlite connection, and provide usefull methods to manage this data.
     database : str -> name of sqlite file"""
+
     def __init__(self, database) -> None:
         self.connection = sqlite3.connect(database)
         self.cursor = self.connection.cursor()
@@ -15,7 +17,6 @@ class Db():
         except sqlite3.ProgrammingError:
             pass
 
-    
     def select_all(self, cls):
         # Give a class to this function, and it will retrieve all objects with this class from the database
         table_name = f"tbl{cls.__name__}s"
@@ -23,28 +24,25 @@ class Db():
         sql = f"SELECT * FROM {table_name}"
 
         all_rows = self.cursor.execute(sql).fetchall()
-        
+
         return all_rows
 
-    
     def select_by_id(self, cls, id):
         # Give a class and an id to this function, and it will retrieve the object with this id from the database
         all_rows = self.select_by_custom_attribute(cls, "id", id)
-        
+
         return all_rows
 
-    
     def select_by_custom_attribute(self, cls, custom_attribute, value):
         # Give a class and a custom attribute to this function, and it will retrieve the objects with this custom attribute from the database
         table_name = f"tbl{cls.__name__}s"
 
         sql = f"SELECT * FROM {table_name} WHERE {custom_attribute}='{value}'"
-        print(sql)
+        # print(sql)
 
         all_rows = self.cursor.execute(sql).fetchall()
-        
-        return all_rows
 
+        return all_rows
 
     def create_table(self, object):
         # Give an object class to this function, and a new table for this class will be created
@@ -62,7 +60,6 @@ class Db():
 
         self.cursor.execute(sql)
         self.connection.commit()
-
 
     def save_object(self, object):
         # Give an object to this function, and it will be saved in the sqlite database
@@ -83,11 +80,11 @@ class Db():
                 sql += ", "
         sql += ")"
 
-        self.create_table(object) # Make sure table exists before saving object
+        # Make sure table exists before saving object
+        self.create_table(object)
 
         self.cursor.execute(sql)
         self.connection.commit()
-
 
     def update_object(self, id, object):
         # Give an object to this function, and it will be updated in sqlite
@@ -100,13 +97,12 @@ class Db():
             sql += f"'{key}' = '{dict[key]}'"
             if key != list(dict)[-1]:
                 sql += ", "
-        
+
         sql += f"WHERE id={id}"
 
         self.cursor.execute(sql)
         self.connection.commit()
 
-    
     def delete_object(self, cls, id):
         # Give a class and an id to this function, and it will delete the object with this id from the database
         table_name = f"tbl{cls.__name__}s"
