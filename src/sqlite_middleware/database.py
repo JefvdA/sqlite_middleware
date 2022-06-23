@@ -38,7 +38,6 @@ class Db():
         table_name = f"tbl{cls.__name__}s"
 
         sql = f"SELECT * FROM {table_name} WHERE {custom_attribute}='{value}'"
-        # print(sql)
 
         all_rows = self.cursor.execute(sql).fetchall()
 
