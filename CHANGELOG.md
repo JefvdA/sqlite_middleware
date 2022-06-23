@@ -5,3 +5,9 @@ Features:
 ```diff
 + Added support for selecting by custom attributes
 ```
+
+## V0.0.4 - UNRELEASED
+Bugs:
+```diff
+- Removed print of query when selecting by attribute
+```
