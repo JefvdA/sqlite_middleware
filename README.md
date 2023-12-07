@@ -1,7 +1,13 @@
-[![Downloads](https://static.pepy.tech/badge/sqlite-middleware)](https://pepy.tech/project/sqlite-middleware) <br>
-
 # Sqlite middleware
 This package removes all the annoying boilerplate code you have to write when using `sqlite3`. Instead, use the methods this package provides, and easily manage your sqlite database in your python project.
+
+[![Downloads](https://static.pepy.tech/badge/sqlite-middleware)](https://pepy.tech/project/sqlite-middleware)
+[![GitHub issues](https://img.shields.io/github/issues-raw/JefvdA/sqlite_middleware)](https://github.com/JefvdA/sqlite_middleware/issues)
+[![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/JefvdA/sqlite_middleware)](https://github.com/JefvdA/sqlite_middleware/issues?q=is%3Aissue+is%3Aclosed)
+[![GitHub contributors](https://img.shields.io/github/contributors-anon/JefvdA/sqlite_middleware)](https://github.com/JefvdA/sqlite_middleware/graphs/contributors)
+[![PyPI](https://img.shields.io/pypi/v/sqlite-middleware)](https://pypi.org/project/sqlite-middleware/)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/JefvdA/sqlite_middleware)](https://github.com/JefvdA/sqlite_middleware/releases)
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/JefvdA/sqlite_middleware/blob/main/LICENCE.md)
 
 - [Installation](#installation)
 - [Db class](#db-class)
