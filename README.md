@@ -1,3 +1,5 @@
+[![Downloads](https://static.pepy.tech/badge/sqlite-middleware)](https://pepy.tech/project/sqlite-middleware) <br>
+
 # Sqlite middleware
 This package removes all the annoying boilerplate code you have to write when using `sqlite3`. Instead, use the methods this package provides, and easily manage your sqlite database in your python project.
 
